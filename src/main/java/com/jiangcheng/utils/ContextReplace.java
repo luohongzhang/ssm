@@ -19,7 +19,6 @@ public class ContextReplace {
 	private static FileFilter filter = new FileFilter() {
 
 		public boolean accept(File pathname) {
-			// ֻ����Ŀ¼ ���� .html�ļ�
 			if (pathname.isDirectory()|| (pathname.isFile() && pathname.getName().endsWith(".html"))) {
 				return true;
 			} else {
@@ -29,16 +28,13 @@ public class ContextReplace {
 	};
 
 	public static void readDir(File file) {
-		// �Թ�������Ϊ����
 		File[] files = file.listFiles(filter);
 		for (File subFile : files) {
-			// ����Ŀ¼
 			if (subFile.isDirectory()) {
 				readDir(subFile);
 			}
-			// �����ļ�
 			else {
-				System.err.println(" Դ�ļ���\t" + subFile.getAbsolutePath());
+				System.err.println(" \t" + subFile.getAbsolutePath());
 				System.err.println("---------------------------");
 				try {
 					replace(subFile.getAbsolutePath(), srcStr, desStr);
