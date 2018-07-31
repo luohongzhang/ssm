@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://java.sun.com/xml/ns/j2ee"
-		xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_5.xsd"
-	version="2.5">
-	
+		 xmlns="http://java.sun.com/xml/ns/javaee"
+		 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+		 id="WebApp_ID" version="3.0">
+
+	<!-- context-param元素声明应用范围内的初始化参数 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:spring.xml,classpath:spring-mybatis.xml</param-value>
 	</context-param>
-	
-	<!-- 先配置编码过滤器 -->
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+	<!-- 先配置编码过滤器 filter 过滤器元素将一个名字与一个实现javax.servlet.Filter接口的类相关联。 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
 	</filter>
+
+	<!-- filter-mapping 一旦命名了一个过滤器，就要利用filter-mapping元素把它与一个或多个servlet或JSP页面相关联。 -->
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	<listner>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listner>
 	
-	<!-- 配置SpringMvc -->
+	<!-- 配置SpringMvc 在向servlet或JSP页面制定初始化参数或定制URL时，必须首先命名servlet或JSP页面。Servlet元素就是用来完成此项任务的。 -->
 	<servlet>
 		<servlet-name>springMvc</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -36,4 +40,5 @@
 		<servlet-name>springMvc</servlet-name>
 		<url-pattern>*.htmls</url-pattern>
 	</servlet-mapping>
+
 </web-app>

@@ -9,7 +9,7 @@
   <url>http://maven.apache.org</url>
   
   <properties>
-  	<spring.version>4.1.4.RELEASE</spring.version>
+  	<spring.version>4.3.13.RELEASE</spring.version>
   </properties>
   
   <dependencies>
@@ -102,15 +102,41 @@
     	<artifactId>druid</artifactId>
     	<version>1.0.12</version>
     </dependency>
-    <!-- log4j -->
-    <dependency>
-    	<groupId>log4j</groupId>
-    	<artifactId>log4j</artifactId>
-    	<version>1.2.17</version>
-    </dependency>
+      <!--log4j-->
+      <dependency>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+          <version>1.2.17</version>
+      </dependency>
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-jdk14</artifactId>
+          <version>1.5.6</version>
+      </dependency>
     
     <!-- javaEE 的引用包 -->
-    
+
+      <!--http-->
+      <dependency>
+          <groupId>org.apache.httpcomponents</groupId>
+          <artifactId>httpcore</artifactId>
+          <version>4.4.8</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.apache.httpcomponents</groupId>
+          <artifactId>httpclient</artifactId>
+          <version>4.5.3</version>
+      </dependency>
+
+
+      <dependency>
+          <groupId>org.projectlombok</groupId>
+          <artifactId>lombok</artifactId>
+          <version>1.16.18</version>
+      </dependency>
+
+
     <!-- servlet -->
     <dependency>
     	<groupId>javax.servlet</groupId>
@@ -123,9 +149,32 @@
     	<artifactId>jstl</artifactId>
     	<version>1.2</version>
     </dependency>
-    
+
+
+      <dependency>
+          <groupId>org.aspectj</groupId>
+          <artifactId>aspectjrt</artifactId>
+          <version>1.9.1</version>
+      </dependency>
+
   </dependencies>
   <build>
     <finalName>ssm</finalName>
+      <resources>
+          <resource>
+              <directory>src/main/java</directory>
+              <includes>
+                  <include>**/*.xml</include>
+              </includes>
+          </resource>
+          <resource>
+              <directory>src/main/resources</directory>
+              <includes>
+                  <include>*.xml</include>
+                  <include>*.properties</include>
+              </includes>
+          </resource>
+      </resources>
   </build>
+
 </project>
