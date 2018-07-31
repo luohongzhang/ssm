@@ -39,6 +39,6 @@ public class BatchUtil {
             rename(pathTemp + "11" + suffix, "1", suffix);
         }
         long endtime = System.currentTimeMillis();
-        System.out.println("Time:" + new Long(endtime - starttime));//��ʱ
+        System.out.println("Time:" + new Long(endtime - starttime));
     }
 }
