@@ -18,7 +18,6 @@ import com.jiangcheng.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)		//表示继承了SpringJUnit4ClassRunner类
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
-//@Configuration(value = "classpath:config.properties")
 public class TestMyBatis {
 	private static Logger logger = Logger.getLogger(TestMyBatis.class);
 	private ApplicationContext ac = null;
@@ -27,7 +26,7 @@ public class TestMyBatis {
 
 	@Before
 	public void before() {
-		ac = new ClassPathXmlApplicationContext("spring-mybatis.xml");
+		ac = new ClassPathXmlApplicationContext("spring-mybatis.xml");//config.properties 和 component-scan 都在 spring=mybatis 中 配置,并且 这里使用 spring - mybatis 才能运行成功 不知道为什么
 		userService = (UserService) ac.getBean("userService");
 	}
 
