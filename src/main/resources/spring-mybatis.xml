@@ -9,8 +9,6 @@
        http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-	<!-- 引入属性文件 -->
-	<context:property-placeholder location="classpath:config.properties" />
 
 	<!-- 扫描@Service类注入 -->
 	<context:component-scan base-package="com.jiangcheng.service.*" />
