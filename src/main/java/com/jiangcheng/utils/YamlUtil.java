@@ -18,6 +18,16 @@ import java.util.Map;
 
 public class YamlUtil<T> {
 
+    /**
+     *
+     * 本类中使用泛型避免了强制类型转换造成运行时异常 强制类型转化转错了类型编译时也不会报错
+     *
+     *
+     *
+     */
+
+
+
     private static YamlUtil instance;
     /**
      * 私有化构造类
