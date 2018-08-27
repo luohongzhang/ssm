@@ -1,0 +1,13 @@
+--- !com.jiangcheng.entity.Person
+age: 23
+children: 
+  - !com.jiangcheng.entity.Person
+    age: 8
+    name: mary1
+    sex: man
+  - !com.jiangcheng.entity.Person
+    age: 9
+    name: simon2
+    sex: fatel
+name: simon.jiang
+sex: man
