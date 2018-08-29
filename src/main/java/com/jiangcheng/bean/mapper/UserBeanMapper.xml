@@ -2,6 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
  	
 <mapper namespace="com.jiangcheng.mapper.UserMapper">
+	<!--mybatis 启动redis缓存-->
+	<cache type="org.mybatis.caches.redis.RedisCache"/>
+
 	<select id="login" parameterType="com.jiangcheng.bean.UserBean" resultType="java.lang.Integer">
 		select count(*) from user where username=#{username} and password=#{password}
 	</select>
