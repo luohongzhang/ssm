@@ -29,4 +29,32 @@
 	<select id="login" parameterType="com.jiangcheng.bean.User" resultType="java.lang.Integer">
 		select count(*) from t_user where username=#{username} and password=#{password}
 	</select>
+
+    <!--
+    方式一：嵌套结果：使用嵌套结果映射来处理重复的联合结果的子集
+                               封装联表查询的数据(去除重复的数据)
+     select * from user u,orders o where u.id=o.user_id and u.id=#{id}
+     -->
+    <select id="selectUserAndOrdersByUserId" resultMap="getUserAndOrders">
+        select u.*,o.id oid,o.number number from t_user u,t_orders o where u.id=o.user_id and u.id=#{id}
+    </select>
+    <resultMap type="com.jiangcheng.bean.User" id="getUserAndOrders">
+        <!--id:指定查询列表唯一标识，如果有多个唯一标识，则配置多个id
+            column:数据库对应的列
+            property:实体类对应的属性名 -->
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="sex" property="sex"/>
+        <result column="password" property="password"/>
+        <result column="realname" property="realname"/>
+        <!--
+            property:实体类中定义的属性名
+            ofType：指定映射到集合中的全类名
+          -->
+        <collection property="orders" ofType="com.jiangcheng.bean.Orders">
+            <id column="id" property="id"/>
+            <id column="user_id" property="userId"/>
+            <result column="number" property="number"/>
+        </collection>
+    </resultMap>
 </mapper>

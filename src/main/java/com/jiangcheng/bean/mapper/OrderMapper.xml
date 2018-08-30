@@ -11,7 +11,7 @@
          select * from orders o,user u where o.user_id=u.id and o.id=#{id}
          -->
     <select id="selectOrderAndUserByOrderID" resultMap="getOrderAndUser">
-        select * from t_orders o,user u where o.user_id=u.id and o.id=#{id}
+        select * from t_orders o,t_user u where o.user_id=u.id and o.id=#{id}
     </select>
     <resultMap type="com.jiangcheng.bean.Orders" id="getOrderAndUser">
         <!--
@@ -35,6 +35,8 @@
             <id column="id" property="id"/>
             <result column="username" property="username"/>
             <result column="sex" property="sex"/>
+            <result column="password" property="password"/>
+            <result column="realname" property="realname"/>
         </association>
     </resultMap>
 
@@ -58,7 +60,7 @@
              property:resultMap中type指定类中的属性名
              column:和select查询关联的字段user_id
          -->
-        <association property="user" javaType="com.jiangcheng.bean.User"  column="user_id" select="getUserByUserId">
+        <association property="userId" javaType="com.jiangcheng.bean.User"  column="user_id" select="getUserByUserId">
 
         </association>
     </resultMap>

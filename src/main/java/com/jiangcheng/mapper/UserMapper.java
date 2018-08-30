@@ -23,4 +23,7 @@ public interface UserMapper {
     @Select("select t_user.* from t_user where t_user.username = #{username,jdbcType=VARCHAR}")
     @Options(useCache = true)
 	List<User> queryList(User user);
+
+    //根据用户id查询用户信息，以及用户下面的所有订单信息
+    public User selectUserAndOrdersByUserId(int UserId);
 }
