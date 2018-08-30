@@ -16,7 +16,7 @@
     <!-- 扫描@Service类注入 -->
     <context:component-scan base-package="com.jiangcheng.service.*" />
 
-	<!-- 配置数据源 -->
+	<!-- 配置数据源 如果这里配置了则mybatis-configuration.xml的配置就是无效的 -->
     <bean name="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
         <property name="url" value="${jdbc.url}"/>
         <property name="username" value="${jdbc.username}"/>
@@ -25,6 +25,7 @@
     <!-- 扫描Mybatis文件 -->
     <bean name="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"></property>
+        <property name="configLocation" value="mybatis-configuration.xml"></property><!--加载配置文件-->
         <property name="mapperLocations" value="classpath:com/jiangcheng/bean/mapper/*.xml"></property>
     </bean>
     <!-- 配置Mapper扫描配置 -->

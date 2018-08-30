@@ -2,6 +2,7 @@ package com.jiangcheng.mapper;
 
 import com.jiangcheng.bean.Orders;
 import com.jiangcheng.bean.User;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
  * @author jiangcheng
  * @version 1.0.0
  */
-
+@Repository
 public interface OrdersMapper {
 
 
