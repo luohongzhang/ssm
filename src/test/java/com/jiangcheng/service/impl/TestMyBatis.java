@@ -7,12 +7,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.jiangcheng.bean.UserBean;
+import com.jiangcheng.bean.User;
 import com.jiangcheng.service.UserService;
 
 
@@ -33,7 +32,7 @@ public class TestMyBatis {
 	@Test
 	public void test1() {
 		
-		UserBean user = new UserBean();
+		User user = new User();
 		user.setPassword("111");
 		user.setUsername("aaa");
 		

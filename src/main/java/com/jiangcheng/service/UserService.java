@@ -1,7 +1,7 @@
 package com.jiangcheng.service;
 
-import com.jiangcheng.bean.UserBean;
+import com.jiangcheng.bean.User;
 
 public interface UserService {
-	boolean login(UserBean user);
+	boolean login(User user);
 }

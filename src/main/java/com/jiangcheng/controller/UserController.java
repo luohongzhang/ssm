@@ -1,13 +1,12 @@
 package com.jiangcheng.controller;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.jiangcheng.bean.UserBean;
+import com.jiangcheng.bean.User;
 import com.jiangcheng.service.UserService;
 
 /**
@@ -27,7 +26,7 @@ public class UserController {
 		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		UserBean user = new UserBean();
+		User user = new User();
 		user.setUsername(username);
 		user.setPassword(password);
 		boolean result = userService.login(user);

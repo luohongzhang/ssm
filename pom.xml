@@ -9,6 +9,15 @@
   <url>http://maven.apache.org</url>
   
   <properties>
+      <!-- 为解决 project structure 无法改成 1.8 lambda -->
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+      <java.version>1.8</java.version>
+      <maven.compiler.source>1.8</maven.compiler.source>
+      <maven.compiler.target>1.8</maven.compiler.target>
+      <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
+
+      <!--配置文件中使用-->
   	<spring.version>4.3.13.RELEASE</spring.version>
   </properties>
   
@@ -208,6 +217,12 @@
           <version>1.0.0</version>
       </dependency>
 
+      <!--分页插件-->
+      <dependency>
+          <groupId>com.github.pagehelper</groupId>
+          <artifactId>pagehelper</artifactId>
+          <version>4.1.0</version>
+      </dependency>
   </dependencies>
   <build>
     <finalName>ssm</finalName>
