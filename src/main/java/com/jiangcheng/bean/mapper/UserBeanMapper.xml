@@ -2,8 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
  	
 <mapper namespace="com.jiangcheng.mapper.UserMapper">
-	<!--mybatis 启动redis缓存-->
-	<cache type="org.mybatis.caches.redis.RedisCache"/>
+	<!--mybatis开启缓存只需要加这样一个空标签就可以了01-->
+		<!-- 开启本mapper的namespace下的二级缓存
+		type:指定cache接口的实现类的类型，不写type属性，mybatis默认使用PerpetualCache
+		要和ehcache整合，需要配置type为ehcache实现cache接口的类型
+		-->
+	<!--<cache/>-->
+
+	<!--PerpetualCache这个类是mybatis默认实现缓存功能的类02 等同于01-->
+	<!--<cache type="org.apache.ibatis.cache.impl.PerpetualCache"/>-->
+
+	<!--mybatis 启动redis缓存 03-->
+	<!--<cache type="org.mybatis.caches.redis.RedisCache"/>-->
+
+	<!--mybatis 启用ehcache-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache" >
+        <property name="timeToIdleSeconds" value="3600"/>
+        <property name="timeToLiveSeconds" value="3600"/>
+        <!-- 同ehcache参数maxElementsInMemory -->
+        <property name="maxEntriesLocalHeap" value="1000"/>
+        <!-- 同ehcache参数maxElementsOnDisk -->
+        <property name="maxEntriesLocalDisk" value="10000000"/>
+        <property name="memoryStoreEvictionPolicy" value="LRU"/>
+    </cache>
 
 	<select id="login" parameterType="com.jiangcheng.bean.UserBean" resultType="java.lang.Integer">
 		select count(*) from user where username=#{username} and password=#{password}
