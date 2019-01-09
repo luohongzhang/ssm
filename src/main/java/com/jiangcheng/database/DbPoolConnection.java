@@ -4,7 +4,6 @@ import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 import com.alibaba.druid.pool.DruidPooledConnection;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
 
 import java.io.*;
 import java.sql.SQLException;
@@ -24,7 +23,7 @@ public class DbPoolConnection {
     private static DbPoolConnection databasePool = null;
     private static DruidDataSource dds = null;
     static {
-        Properties properties = loadPropertyFile("db_server.properties");
+        Properties properties = loadPropertyFile("db_server_01.properties");
         try {
             dds = (DruidDataSource) DruidDataSourceFactory.createDataSource(properties);
         } catch (Exception e) {

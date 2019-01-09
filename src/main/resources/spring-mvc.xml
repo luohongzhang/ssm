@@ -32,6 +32,19 @@
         <aop:include name="controllerAspect"/>
     </aop:aspectj-autoproxy>
 
+    <!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
+    <!-- 支持JSON数据格式 -->
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="mappingJacksonHttpMessageConverter" />
+            </list>
+        </property>
+    </bean>
+    <bean id="mappingJacksonHttpMessageConverter"
+          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+    </bean>
+
     <!-- 试图解析 -->
         <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         	<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
