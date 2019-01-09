@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.jiangcheng.bean.User;
@@ -34,6 +35,23 @@ public class UserController {
 			return "/user/success";
 		}else{
 			return "/user/fail";
+		}
+	}
+
+	/**
+	 * 另一个写法 使用到了model
+	 * @param user
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("login.do")
+	public String doLogin(User user, Model model) {
+		if (userService.login(user)) {
+			model.addAttribute("successMsg","登陆成功!");
+			return "/success";
+		} else {
+			model.addAttribute("failMsg","用户不存在或密码错误!");
+			return "/fail";
 		}
 	}
 }
