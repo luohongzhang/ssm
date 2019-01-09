@@ -43,19 +43,57 @@
         <!--id:指定查询列表唯一标识，如果有多个唯一标识，则配置多个id
             column:数据库对应的列
             property:实体类对应的属性名 -->
-        <id column="id" property="id"/>
-        <result column="username" property="username"/>
-        <result column="sex" property="sex"/>
-        <result column="password" property="password"/>
-        <result column="realname" property="realname"/>
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="sex" property="sex" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="realname" property="realname" jdbcType="VARCHAR"/>
         <!--
             property:实体类中定义的属性名
             ofType：指定映射到集合中的全类名
           -->
         <collection property="orders" ofType="com.jiangcheng.bean.Orders">
-            <id column="id" property="id"/>
-            <id column="user_id" property="userId"/>
-            <result column="number" property="number"/>
+            <id column="id" property="id" jdbcType="INTEGER"/>
+            <id column="user_id" property="userId" jdbcType="VARCHAR"/>
+            <result column="number" property="number" jdbcType="VARCHAR"/>
         </collection>
     </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_name,sex,password,realname,age
+    </sql>
+
+    <resultMap id="BaseResultMap" type="com.jiangcheng.bean.User">
+        <!--
+            id:指定查询列表唯一标识，如果有多个唯一标识，则配置多个id
+            column:数据库对应的列
+            property:实体类对应的属性名
+          -->
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="sex" property="sex" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="realname" property="realname" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 根据id查询 user 表数据 -->
+    <select id="selectUserById"  resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List" />
+        from t_user where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <!-- 根据id查询 user 表数据 -->
+    <select id="selectUserAll"  resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from t_user
+    </select>
+
+    <!-- 向t_user表插入一条数据 -->
+    <insert id="selectUser"  parameterType="com.jiangcheng.bean.User">
+        insert into
+        t_user(<include refid="Base_Column_List" />)
+        value(#{id,jdbcType=INTEGER},#{username,jdbcType=VARCHAR},#{age,jdbcType=INTEGER})
+    </insert>
 </mapper>

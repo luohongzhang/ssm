@@ -13,6 +13,7 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserMapper userMapper;
 	
+	@Override
 	public boolean login(User user) {
 		int result = userMapper.login(user);
 		if(result > 0){
