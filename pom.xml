@@ -117,6 +117,12 @@
     	<artifactId>druid</artifactId>
     	<version>1.0.12</version>
     </dependency>
+      <!--c3p0连接池最终并没有使用-->
+      <dependency>
+          <groupId>com.mchange</groupId>
+          <artifactId>c3p0</artifactId>
+          <version>0.9.5.2</version>
+      </dependency>
       <!--log4j-->
       <dependency>
           <groupId>log4j</groupId>
