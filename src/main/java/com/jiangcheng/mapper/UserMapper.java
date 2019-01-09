@@ -17,7 +17,7 @@ import java.util.List;
 @Repository
 public interface UserMapper {
 
-	//@Options(useCache = true) //这种使用方式是无效的
+	//@Options(useCache = true) //这种使用方式是无效的 必须跟@Select同时使用
 	int login(User user);
 
     @Select("select t_user.* from t_user where t_user.username = #{username,jdbcType=VARCHAR}")
