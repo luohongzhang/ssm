@@ -8,35 +8,35 @@
                                    封装联表查询的数据(去除重复的数据)
          select * from orders o,user u where o.user_id=u.id and o.id=#{id}
          -->
-    <select id="selectOrderAndUserByOrderID" resultMap="getOrderAndUser">
+    <!--<select id="selectOrderAndUserByOrderID" resultMap="getOrderAndUser">
         select * from t_orders o,t_user u where o.user_id=u.id and o.id=#{id}
     </select>
     <resultMap type="com.jiangcheng.bean.Orders" id="getOrderAndUser">
-        <!--
+        &lt;!&ndash;
             id:指定查询列表唯一标识，如果有多个唯一标识，则配置多个id
             column:数据库对应的列
             property:实体类对应的属性名
-          -->
+          &ndash;&gt;
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="user_id" property="userId" jdbcType="VARCHAR"/>
         <result column="number" property="number" jdbcType="VARCHAR"/>
-        <!--association:用于映射关联查询单个对象的信息
+        &lt;!&ndash;association:用于映射关联查询单个对象的信息
             property:实体类对应的属性名
             javaType:实体类对应的全类名
-          -->
+          &ndash;&gt;
         <association property="user" javaType="com.jiangcheng.bean.User">
-            <!--
+            &lt;!&ndash;
                 id:指定查询列表唯一标识，如果有多个唯一标识，则配置多个id
                 column:数据库对应的列
                 property:实体类对应的属性名
-              -->
+              &ndash;&gt;
             <id column="id" property="id" jdbcType="INTEGER"/>
             <result column="username" property="username" jdbcType="VARCHAR"/>
             <result column="sex" property="sex" jdbcType="VARCHAR"/>
             <result column="password" property="password" jdbcType="VARCHAR"/>
             <result column="realname" property="realname" jdbcType="VARCHAR"/>
         </association>
-    </resultMap>
+    </resultMap>-->
 
 
 
@@ -47,23 +47,23 @@
          select user_id from order WHERE id=1;//得到user_id
          select * from user WHERE id=1   //1 是上一个查询得到的user_id的值
          property:别名(属性名)    column：列名 -->
-    <select id="getOrderByOrderId" resultMap="getOrderMap">
+    <!--<select id="getOrderByOrderId" resultMap="getOrderMap">
         select * from t_orders
     </select>
     <resultMap type="com.jiangcheng.bean.Orders" id="getOrderMap">
         <id column="id" property="id"/>
         <result column="number" property="number"/>
-        <!-- select:指定延迟加载需要执行的statement的id（根据user_id查询的statement）
+        &lt;!&ndash; select:指定延迟加载需要执行的statement的id（根据user_id查询的statement）
                     如果不在本文件中，需要加上namespace
              property:resultMap中type指定类中的属性名
              column:和select查询关联的字段user_id
-         -->
+         &ndash;&gt;
         <association property="userId" javaType="com.jiangcheng.bean.User"  column="user_id" select="getUserByUserId">
 
         </association>
     </resultMap>
     <select id="getUserByUserId" resultType="com.jiangcheng.bean.User">
         select * from t_user where id=#{id}
-    </select>
+    </select>-->
 
 </mapper>

@@ -50,8 +50,8 @@ public class OrdersMapperTest {
         String statement = "com.jiangcheng.mapper.OrdersMapper.selectOrderAndUserByOrderID";
         //创建OrdersMapper对象，mybatis自动生成mapepr代理对象
         OrdersMapper orderMapper = session.getMapper(OrdersMapper.class);
-        Orders order = orderMapper.selectOrderAndUserByOrderID(1);
-        System.out.println(order);
+        //Orders order = orderMapper.selectOrderAndUserByOrderID(1);
+        //System.out.println(order);
         session.close();
     }
 
@@ -65,8 +65,8 @@ public class OrdersMapperTest {
         String statement = "com.jiangcheng.mapper.OrdersMapper.getOrderByOrderId";
         //创建OrdersMapper对象，mybatis自动生成mapepr代理对象
         OrdersMapper orderMapper = session.getMapper(OrdersMapper.class);
-        Orders order = orderMapper.selectOrderAndUserByOrderID(1);
-        System.out.println(order);
+        //Orders order = orderMapper.selectOrderAndUserByOrderID(1);
+        //System.out.println(order);
         session.close();
     }
 
@@ -76,9 +76,9 @@ public class OrdersMapperTest {
         String statement = "com.jiangcheng.mapper.OdersMapper.getOrderByOrderId";
         //创建OrdersMapper对象，mybatis自动生成mapepr代理对象
         OrdersMapper orderMapper = session.getMapper(OrdersMapper.class);
-        List<Orders> orders = orderMapper.getOrderByOrderId();//第一步
-        for(Orders order : orders){
-        }
+        //List<Orders> orders = orderMapper.getOrderByOrderId();//第一步
+        //for(Orders order : orders){
+        //}
         session.close();
     }
 }

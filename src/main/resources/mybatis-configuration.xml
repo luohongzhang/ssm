@@ -60,7 +60,9 @@
         <!--通过OrdersMapper接口注册OrdersMapper.xml文件，必须保证：接口和xml在同一个包下，而且名字一样 OrdersMapper接口的方法名和OrdersMapper.xml文件的id一样 OrdersMapper接口的输出参数和OrdersMapper。xml文件resultType，parameterType类型一样-->
         <!--懒加载-->
         <mapper class="com.jiangcheng.mapper.OrdersMapper"/>
+        <!--<mapper resource="com.jiangcheng.bean.mapper.OrdersMapper.xml"/>-->
         <!--一对多-->
         <mapper class="com.jiangcheng.mapper.UserMapper"/>
+        <!--<mapper resource="com.jiangcheng.bean.mapper.UserMapper.xml"/>-->
     </mappers>
 </configuration>
