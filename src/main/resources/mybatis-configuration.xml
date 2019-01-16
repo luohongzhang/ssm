@@ -43,10 +43,10 @@
     </plugins>
 
     <!--通过XMLConfigBuilder的environmentsElement方法解析，在该方法内，先判断默认是否指定了环境ID，没有的话就使用默认的环境ID吗，然后在各个环境里取ID对应的项。也就是说一个Configuration只会保存一个数据库环境，如果要配置多数据库环境的话需要创建多个Configuration对象。在改方法内先解析事务工厂、再解析数据源、然后再解析数据库环境，在解析数据库环境的过程中会访问一次数据库，以取得数据库类型信息。-->
-    <environments default="development">
+    <!--<environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
-            <!--dataSource 元素使用标准的 JDBC 数据源接口来配置 JDBC 连接对象源  -->
+            &lt;!&ndash;dataSource 元素使用标准的 JDBC 数据源接口来配置 JDBC 连接对象源  &ndash;&gt;
             <dataSource type="POOLED">
                 <property name="driver" value="${jdbc.driver}"/>
                 <property name="url" value="${jdbc.url}"/>
@@ -54,7 +54,7 @@
                 <property name="password" value="${jdbc.password}"/>
             </dataSource>
         </environment>
-    </environments>
+    </environments>-->
 
     <mappers>
         <!--通过OrdersMapper接口注册OrdersMapper.xml文件，必须保证：接口和xml在同一个包下，而且名字一样 OrdersMapper接口的方法名和OrdersMapper.xml文件的id一样 OrdersMapper接口的输出参数和OrdersMapper。xml文件resultType，parameterType类型一样-->

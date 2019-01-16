@@ -10,5 +10,4 @@
 
 		<!-- 扫描@Service类注入 -->
 		<context:component-scan base-package="com.jiangcheng.service.*" />
-
 </beans>
