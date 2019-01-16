@@ -24,15 +24,7 @@
      <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
     -->
     <!--<cache type="org.mybatis.caches.ehcache.EhcacheCache"/>-->
-    <!--<cache type="org.mybatis.caches.ehcache.EhcacheCache" >
-        <property name="timeToIdleSeconds" value="3600"/>
-        <property name="timeToLiveSeconds" value="3600"/>
-        &lt;!&ndash; 同ehcache参数maxElementsInMemory &ndash;&gt;
-        <property name="maxEntriesLocalHeap" value="1000"/>
-        &lt;!&ndash; 同ehcache参数maxElementsOnDisk &ndash;&gt;
-        <property name="maxEntriesLocalDisk" value="10000000"/>
-        <property name="memoryStoreEvictionPolicy" value="LRU"/>
-    </cache>-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache" />
 
 	<select id="login" parameterType="com.jiangcheng.bean.User" resultType="java.lang.Integer">
 		select count(*) from t_user where username=#{username} and password=#{password}
