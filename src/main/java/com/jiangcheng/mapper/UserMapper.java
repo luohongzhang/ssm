@@ -31,7 +31,7 @@ public interface UserMapper {
      * @return
      */
     @Select("select t_user.* from t_user where t_user.username = #{username,jdbcType=VARCHAR}")
-    @Options(useCache = true)
+    //@Options(useCache = true)
 	List<User> queryList(User user);
 
     /**
