@@ -1,17 +1,12 @@
 package com.jiangcheng.mapper;
 
-import com.jiangcheng.bean.Orders;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Before;
 import org.junit.Test;
-import sun.font.TrueTypeFont;
 
 import java.io.InputStream;
-import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * 类名称：OrdersMapperTest<br>
@@ -62,8 +57,8 @@ public class OrdersMapperTest {
      */
     @Test
     public void testgetOrderByOrderId(){
-        String statement = "com.jiangcheng.mapper.OrdersMapper.getOrderByOrderId";
-        //创建OrdersMapper对象，mybatis自动生成mapepr代理对象
+        String statement = "com.jiangcheng.mapper.OrderMapper.getOrderByOrderId";
+        //创建OrderMapper对象，mybatis自动生成mapepr代理对象
         OrdersMapper orderMapper = session.getMapper(OrdersMapper.class);
         //Orders order = orderMapper.selectOrderAndUserByOrderID(1);
         //System.out.println(order);
@@ -74,7 +69,7 @@ public class OrdersMapperTest {
     @Test
     public void testLazy(){
         String statement = "com.jiangcheng.mapper.OdersMapper.getOrderByOrderId";
-        //创建OrdersMapper对象，mybatis自动生成mapepr代理对象
+        //创建OrderMapper对象，mybatis自动生成mapepr代理对象
         OrdersMapper orderMapper = session.getMapper(OrdersMapper.class);
         //List<Orders> orders = orderMapper.getOrderByOrderId();//第一步
         //for(Orders order : orders){
