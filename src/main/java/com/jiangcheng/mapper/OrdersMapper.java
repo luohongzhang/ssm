@@ -27,7 +27,7 @@ public interface OrdersMapper {
      * @return
      */
     //根据订单ID查询订单和用户信息
-    //public Orders selectOrderAndUserByOrderID(int orderId);
+    public Orders selectOrderAndUserByOrderID(int orderId);
 
 
 
@@ -42,6 +42,6 @@ public interface OrdersMapper {
     public User getUserByUserId(int userID);
 
     //得到订单信息(包含user_id)
-    //public List<Orders> getOrderByOrderId();
+    public List<Orders> getOrderByOrderId();
 
 }
